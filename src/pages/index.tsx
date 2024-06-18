@@ -12,7 +12,7 @@ export default function Home() {
     </nav>
 
     {/* buscar: useState y useEffect */}
-
+    {/* es7 react, simple react snippets, typescript react code */}
 
     <p>hola</p>
     <Perfil Nombre="riki" Apellido="valdes" Edad={15}/>
