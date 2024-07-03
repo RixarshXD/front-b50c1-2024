@@ -1,15 +1,22 @@
 import Link from "next/link";
 import Perfil from "./components/Perfil";
 import Pagina1 from "./Pagina1";
-import Pagina2 from "./Pagina2";
+import { useState } from "react";
+
+
+
 
 export default function Home() {
+
+
   return (
     <>
       <nav>
         <Link href={"About"}>hola</Link>
         <br></br>
         <Link href={"Pagina2"}>suma de numeros</Link>
+        <br></br>
+        <Link href={'Pagina3'}>Registro de personas</Link>
       </nav>
 
       {/* buscar: useState y useEffect */}

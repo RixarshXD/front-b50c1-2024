@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+
+
 const Pagina1 = () => {
   const [nombre, setNombre] = useState("");
   // perime recuperar el valor de la variable, y el 2do parametro es una funcion que permite modificar la varaible
@@ -54,6 +56,8 @@ const Pagina1 = () => {
         <Button variant="primary" onClick={registrar}>
           Registrar
         </Button>
+
+        
       </Form>
     </>
   );
