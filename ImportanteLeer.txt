@@ -1,0 +1,154 @@
+crear el proyecto
+crear el componente de la pagina (en este caso pagina3)
+
+crear el formulario de registro
+va a tener la siguiente estructura: 
+
+<>
+	<Form>
+		<Form.Group>
+            	<Form.Label></Form.Label>
+            	<Form.Control/>
+            	<Form.Text></Form.Text>
+        </Form.Group>
+	
+	<Button></Button>
+	</Form>
+
+</>
+
+crear los initialState de los campos:
+
+const initialStateX:x = {
+    x: '',
+    x: '',
+    x: '',
+    x: 0, (pueden ser number, str, boolean, true || false)
+    x: '',
+    x: ''
+  }
+
+crear las interfaces
+
+export interface X{
+    x:string,
+    x:string,
+    x:string,
+    x:number,
+    x:string,
+    x:string
+  }
+
+
+
+
+crear el state
+
+const [x, setX] = useState < X >(initialStateX)
+
+
+una validacion de un largo minimo:
+
+const validarLargoMinimo = (name:string,value:string)=>{
+        setX({...x,[name]:value})
+    }
+
+
+
+registro de algo:
+
+const registrar = () => {
+        registrarX(x).then(()=>{
+            alert('se ha registrado con exito')
+        }).catch((e)=>{alert('no se ha podido registrar')
+            console.log(e)
+        })
+    }
+
+
+para que la validacion pueda hacerse tiene que ir dentro del Form.Control
+
+onChange={(e)=>{validarLargoMinimo(e.currentTarget.name,e.currentTarget.value)}}
+
+
+
+luego instalar Firebase: npm install firebase
+
+crear la carpeta de firebase
+
+crear archivo credenciales:
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyBRIZ8GIAevGPpFfdpepZwUSJtlkY0v950",
+    authDomain: "crud-nuevo-44704.firebaseapp.com",
+    projectId: "crud-nuevo-44704",
+    storageBucket: "crud-nuevo-44704.appspot.com",
+    messagingSenderId: "603456598798",
+    appId: "1:603456598798:web:fa9d0fe195e0e62ec31d5f"
+  };
+
+(las credenciales pueden sacarse de la misma pagina de firebase)
+
+
+crear archivo firebase:
+
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./Credenciales";
+import { getFirestore } from "firebase/firestore";
+
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+
+(por lo general este archivo es el mismo)
+
+
+crear archivo promesas:
+
+(importaciones importantes)
+import { Persona } from "@/interfaces/Interfaces";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import { db } from "./Firebase";
+
+(registro)
+export const registrarPersona = async(persona:Persona) =>{
+    const docRef = await addDoc(collection(db, "personas"), persona);
+}
+
+
+(snapshot de la base de datos)
+
+export const obtenerX = async()=>{
+    const colRef= collection(db, "nombreDeLaColeccionEnLaBaseDeDatos");
+
+    const querySnapshot = await getDocs(colRef);
+
+    let x:X[] = []
+    querySnapshot.forEach((doc) => {
+        let x:X = {
+            x:doc.data().x,
+            x:doc.data().x,
+            x:doc.data().x,
+            x:doc.data().x,
+            x:doc.data().x,
+            x:doc.data().x
+        }
+        x.push(x)
+    });
+    return x
+}
+
+
+
+
+
+luego de terminar los archivos firebase
+
+se debe asignar la promesa registrarX al boton de registrar 
+
+<Button variant='success' onClick={registrar}>Registrar</Button>
+
+
+
