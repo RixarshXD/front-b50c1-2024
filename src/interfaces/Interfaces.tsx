@@ -5,4 +5,7 @@ export interface Persona{
     edad:number,
     fechaNacimiento:string,
     correo:string
+
+    // el ? significa que puede ser opcional
+    key?:string
   }

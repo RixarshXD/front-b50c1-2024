@@ -96,8 +96,6 @@ import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./Credenciales";
 import { getFirestore } from "firebase/firestore";
 
-
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
@@ -141,7 +139,59 @@ export const obtenerX = async()=>{
 }
 
 
+generar una tabla de los registros
 
+
+const Pagina4 = () => {
+
+  const[x, setX] = useState<X[]>([])
+
+
+    const traerDatos = () => {
+        obtenerx().then((x) => {
+            console.log(x)
+            setX(x)
+        })
+    }
+    useEffect(()=>{
+        traerDatos()
+    },[])
+  return (
+    <>
+      <Table>
+        <thead>
+          <tr>
+          <th>x</th>
+          <th>x</th>
+          <th>x</th>
+          <th>x</th>
+          <th>x</th>
+          <th>x</th>
+          </tr>
+        </thead>
+        <tbody>
+          {personas.map((p)=>{
+            return <tr>
+              <td>{x.X}</td>
+              <td>{x.X}</td>
+              <td>{x.X}</td>
+              <td>{x.X}</td>
+              <td>{x.X}</td>
+              <td>{x.X}</td>
+            </tr>
+          })}
+        </tbody>
+      </Table>
+    </>
+  )
+}
+
+
+export default Pagina4
+
+    .map()
+    {/* toma algo y lo combierte en otra cosa y lo retorna */}
+    {/* <ol> es una lista ordenada por numeros */}
 
 
 luego de terminar los archivos firebase
@@ -151,4 +201,24 @@ se debe asignar la promesa registrarX al boton de registrar
 <Button variant='success' onClick={registrar}>Registrar</Button>
 
 
+table
+thead
+tbody
 
+
+
+
+
+
+rafc
+
+
+
+pagina de iconos: https://react-icons.github.io/react-icons/
+
+
+
+arreglar esto.                 <Link href={{pathname:'/Pagina5/',query}}>
+
+
+en funcion modificar llamar a la promesa modificarPersona 
